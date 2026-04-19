@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
-                        startDestination = "counter",
+                        startDestination = "books",
                         navController = navController
                     ){
                         composable (route= "books"){
