@@ -2,4 +2,6 @@
 <resources>
 
     <style name="Theme.LibraryApp" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.NewsAPP" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

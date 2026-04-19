@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
@@ -24,8 +25,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.pajasoft.libraryapp.screens.BooksScreen
+import com.pajasoft.libraryapp.ui.theme.LibraryAppTheme
 
 @Composable
 fun Header(innerPadding: PaddingValues){
@@ -77,7 +81,7 @@ fun Header(innerPadding: PaddingValues){
             IconButton(
                 onClick = { },
                 modifier = Modifier
-                    .padding(start = 10.dp)
+                    .padding(start = 100.dp)
                     .clip(CircleShape)
                     .background(colors.tertiary)
             ) {
@@ -123,15 +127,22 @@ fun Header(innerPadding: PaddingValues){
                     text = "Nombre de un libro"
                 )
                 Text(
-                    text = "Autor de un libro"
+                    text = "Autor de un libro",
+                    modifier = Modifier.weight(1f)
                 )
                 Row(
-                    modifier = Modifier.border(
-                        width = 1.dp,
-                        colors.secondary,
-                        RoundedCornerShape(5.dp)
-                    )
+                    modifier = Modifier
+                        .border(
+                            width = 1.dp,
+                            colors.secondary,
+                            RoundedCornerShape(5.dp)
+                        )
+                        .padding(6.dp)
                 ) {
+                    Icon(
+                        imageVector = Icons.Default.Menu,
+                        contentDescription = "Menu"
+                    )
                     Text(
                         text = "leer"
                     )
@@ -140,3 +151,5 @@ fun Header(innerPadding: PaddingValues){
         }
     }
 }
+
+

@@ -24,3 +24,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "LibraryApp"
 include(":app")
+include(":app")
+ 

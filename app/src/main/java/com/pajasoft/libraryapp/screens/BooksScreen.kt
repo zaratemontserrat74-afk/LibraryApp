@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -30,25 +33,50 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ModifierInfo
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
+import com.pajasoft.books
 import com.pajasoft.libraryapp.components.Header
+import com.pajasoft.libraryapp.components.PopularBook
 import com.pajasoft.libraryapp.ui.theme.LibraryAppTheme
 
 @Composable
 
 fun BooksScreen(
-    innerPadding : PaddingValues
+    innerPadding : PaddingValues,
+    navController: NavController
 ){
     val colors = MaterialTheme.colorScheme
     val typography = MaterialTheme.typography
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(colors.background)
     ) {
-        Header(
-            innerPadding
-        )
+        item {
+            Header(
+                innerPadding
+            )
+        }
+
+        item {
+            Text(
+                text = "Libros Populares"
+            )
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp)
+            ) {
+                items(books){ book ->
+                    PopularBook(
+                        book = book,
+                        navController = navController
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -61,7 +89,8 @@ fun BooksScreen(
 fun BooksScreenPreview(){
     LibraryAppTheme {
         BooksScreen(
-            innerPadding = PaddingValues(15.dp)
+            innerPadding = PaddingValues(15.dp),
+            navController = rememberNavController()
         )
     }
 }
