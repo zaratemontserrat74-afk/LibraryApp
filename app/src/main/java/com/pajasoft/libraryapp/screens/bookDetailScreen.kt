@@ -31,10 +31,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.pajasoft.books
+import com.pajasoft.libraryapp.ui.theme.LibraryAppTheme
 
 
 @Composable
@@ -197,6 +199,20 @@ fun StatChip(label: String, value: String) {
             fontSize = 13.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF333333)
+        )
+    }
+}
+
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
+
+@Composable
+fun BookDetailScreenPreview(){
+    LibraryAppTheme {
+        BookDetailScreen(
+            id = 1
         )
     }
 }
